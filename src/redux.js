@@ -1,8 +1,12 @@
-// action types
 import axios from 'axios';
 import _ from 'lodash';
 import {dataMock} from './mash/mock';
 import {GET_CATS_SUCCESS, UPDATE_RANKING, GET_RANKING_SUCCESS} from './actions';
+
+const urlApi =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5000/'
+    : window.location.href;
 
 const buildRanking = (cats, ranking) => {
   let catsByKey = _.keyBy(cats, 'id');
@@ -23,6 +27,7 @@ const buildRanking = (cats, ranking) => {
 
 export const fetchcats = async dispatch => {
   try {
+    console.log();
     const data = await axios.get('https://latelier.co/data/cats.json');
     return dispatch({
       type: GET_CATS_SUCCESS,
@@ -44,7 +49,7 @@ export const fetchcats = async dispatch => {
 
 export const updateRanking = async (id, dispatch) => {
   try {
-    await axios.post(`${window.location.href}api/cats/ranking`, {id});
+    await axios.post(`${urlApi}api/cats/ranking`, {id});
     return dispatch({
       type: UPDATE_RANKING,
     });
@@ -55,7 +60,7 @@ export const updateRanking = async (id, dispatch) => {
 
 export const fetchRanking = async (dispatch, state) => {
   try {
-    let {data} = await axios.get('http://localhost:5000/api/cats/ranking');
+    let {data} = await axios.get(`${urlApi}api/cats/ranking`);
     const cats = state.cats.length === 0 ? dataMock.images : state.cats;
     data = buildRanking(cats, data);
     return dispatch({
