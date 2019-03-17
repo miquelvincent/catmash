@@ -1,7 +1,7 @@
 // action types
 import axios from 'axios';
 import _ from 'lodash';
-import {dataMock} from './match/mock';
+import {dataMock} from './mash/mock';
 import {GET_CATS_SUCCESS, UPDATE_RANKING, GET_RANKING_SUCCESS} from './actions';
 
 const buildRanking = (cats, ranking) => {
