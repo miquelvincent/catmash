@@ -44,7 +44,7 @@ export const fetchcats = async dispatch => {
 
 export const updateRanking = async (id, dispatch) => {
   try {
-    await axios.post('http://localhost:5000/api/cats/ranking', {id});
+    await axios.post(`${window.location.href}api/cats/ranking`, {id});
     return dispatch({
       type: UPDATE_RANKING,
     });
