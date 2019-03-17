@@ -1,7 +1,25 @@
 // action types
 import axios from 'axios';
+import _ from 'lodash';
 import {dataMock} from './match/mock';
-import {GET_CATS_SUCCESS, UPDATE_RANKING} from './actions'
+import {GET_CATS_SUCCESS, UPDATE_RANKING, GET_RANKING_SUCCESS} from './actions';
+
+const buildRanking = (cats, ranking) => {
+  let catsByKey = _.keyBy(cats, 'id');
+  let rankingByKey = _.keyBy(ranking, 'id');
+  const result = _.forEach(catsByKey, (value, key) => {
+    catsByKey[key] = rankingByKey[key]
+      ? {
+          ...value,
+          ...rankingByKey[key],
+        }
+      : {
+          ...value,
+          scoreRate: 0,
+        };
+  });
+  return _.orderBy(result, ['scoreRate'], ['desc']);
+};
 
 export const fetchcats = async dispatch => {
   try {
@@ -28,9 +46,23 @@ export const updateRanking = async (id, dispatch) => {
   try {
     await axios.post('http://localhost:5000/api/cats/ranking', {id});
     return dispatch({
-      type:UPDATE_RANKING
+      type: UPDATE_RANKING,
     });
   } catch (e) {
-    return e
+    return e;
+  }
+};
+
+export const fetchRanking = async (dispatch, state) => {
+  try {
+    let {data} = await axios.get('http://localhost:5000/api/cats/ranking');
+    const cats = state.cats.length === 0 ? dataMock.images : state.cats;
+    data = buildRanking(cats, data);
+    return dispatch({
+      type: GET_RANKING_SUCCESS,
+      ranking: data,
+    });
+  } catch (e) {
+    return e;
   }
 };
