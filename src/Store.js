@@ -1,8 +1,8 @@
 import React from 'react';
-import {composeWithDevTools} from 'redux-devtools-extension';
 import {reducer} from './reducer';
 
-export const Store = React.createContext(composeWithDevTools());
+export const Store = React.createContext();
+
 
 const initialState = {
   cats: [],

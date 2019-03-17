@@ -1,11 +1,7 @@
 // action types
 import axios from 'axios';
 import {dataMock} from './match/mock';
-
-export const GET_CATS_REQUEST = 'GET_CATS_REQUEST';
-export const GET_CATS_SUCCESS = 'GET_CATS_SUCCESS';
-export const GET_CATS_FAILURE = 'GET_CATS_FAILURE';
-export const UPDATE_RANKING = 'UPDATE_RANKING';
+import {GET_CATS_SUCCESS, UPDATE_RANKING} from './actions'
 
 export const fetchcats = async dispatch => {
   try {
@@ -28,9 +24,13 @@ export const fetchcats = async dispatch => {
   }
 };
 
-export const updateRanking = (id, dispatch) => {
-  return dispatch({
-    type: UPDATE_RANKING,
-    id,
-  });
+export const updateRanking = async (id, dispatch) => {
+  try {
+    await axios.post('http://localhost:5000/api/cats/ranking', {id});
+    return dispatch({
+      type:UPDATE_RANKING
+    });
+  } catch (e) {
+    return e
+  }
 };

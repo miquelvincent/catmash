@@ -1,5 +1,5 @@
 import React from 'react';
-import { Store } from '../Store';
+import { Store } from '../Store'; 
 import { fetchcats, updateRanking } from '../redux';
 import _ from 'lodash'
 
