@@ -19,11 +19,13 @@ export const gradient = 'linear-gradient(' + angle + 'deg, ' + newColor1 + ', ' 
 
 export const Layout = styled.div`
   margin-top: 4vw;
+  margin-bottom: 4vw;
   display: flex;
   justify-content: center;
   align-items: center;
   @media (max-width: 920px) {
     margin-top: 70px;
+    margin-bottom: 50px;
   }
   h1 {
     font-size: 45px;
