@@ -2,43 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Store} from '../Store';
 import {fetchRanking} from '../redux';
-import styled from '@emotion/styled';
 import {Nav} from '../style';
-
-export const Container = styled.div`
-  h1 {
-    text-align: center;
-    margin-bottom: 5vw;
-  }
-  .catsList {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 45px 20px;
-    .text {
-      font-size: 20px;
-      margin-top: 5px;
-    }
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 300px;
-        vertical-align: middle;
-        height: 300px;
-        border-radius: 50%;
-      }
-    }
-  }
-`;
+import {Container} from './style';
 
 const CatsList = React.lazy(() => import('./CatsList'));
 
 const Ranking = () => {
   const {state, dispatch} = React.useContext(Store);
-
   React.useEffect(() => {
     fetchRanking(dispatch, state);
   }, []);

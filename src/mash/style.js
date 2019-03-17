@@ -9,6 +9,9 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    @media (max-width: 920px) {
+      flex-direction: column;
+    }
     div {
       margin: 5vw;
       img {
@@ -16,6 +19,10 @@ export const Container = styled.div`
         vertical-align: middle;
         width: 30vw;
         height: 30vw;
+        @media (max-width: 920px) {
+          width: 300px;
+          height: 300px;
+        }
         border-radius: 50%;
         -webkit-transform: scale(1);
         transform: scale(1);

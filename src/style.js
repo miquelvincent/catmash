@@ -35,15 +35,21 @@ export const gradient =
   'linear-gradient(' + angle + 'deg, ' + newColor1 + ', ' + newColor2 + ')';
 
 export const Layout = styled.div`
-  margin-top: 3vw;
+  margin-top: 4vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 920px) {
+    margin-top: 70px;;
+    }
   h1 {
     font-size: 45px;
   }
   > div {
     width: 80vw;
+    @media (max-width: 1024px) {
+      width: 95vw;
+    }
   }
   > .background {
     z-index: -2;
