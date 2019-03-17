@@ -5,7 +5,7 @@ import { GET_CATS_SUCCESS, UPDATE_RANKING, GET_RANKING_SUCCESS } from './actions
 
 const urlApi = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/' : window.location.href
 
-const buildRanking = (cats, ranking) => {
+export const buildRanking = (cats, ranking) => {
   let catsByKey = _.keyBy(cats, 'id')
   let rankingByKey = _.keyBy(ranking, 'id')
   const result = _.forEach(catsByKey, (value, key) => {

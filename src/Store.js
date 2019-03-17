@@ -3,7 +3,7 @@ import { reducer } from './reducer'
 
 export const Store = React.createContext()
 
-const initialState = {
+export const initialState = {
   cats: [],
   ranking: []
 }

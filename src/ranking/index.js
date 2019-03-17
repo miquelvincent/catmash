@@ -10,7 +10,7 @@ const CatsList = React.lazy(() => import('./CatsList'))
 const Ranking = () => {
   const { state, dispatch } = React.useContext(Store)
   React.useEffect(() => {
-    fetchRanking(dispatch, state)
+    state.ranking.length === 0 && fetchRanking(dispatch, state)
   }, [dispatch, state])
 
   const props = {

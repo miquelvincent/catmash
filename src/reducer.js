@@ -6,7 +6,8 @@ export const reducer = (state, action) => {
     case GET_CATS_SUCCESS:
       return {
         ...state,
-        cats: action.cats
+        cats: action.cats,
+        ranking: []
       }
 
     case UPDATE_RANKING:

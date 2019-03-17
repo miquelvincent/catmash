@@ -1,12 +1,8 @@
 // @flow
-import React from 'react';
+import React from 'react'
 
 const NotFound = () => {
-  return (
-    <div>
-      Sorry : NOT RESULT
-    </div>
-  );
-};
+  return <div>Sorry : NOT RESULT</div>
+}
 
-export default NotFound;
+export default NotFound
