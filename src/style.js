@@ -1,38 +1,21 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-const hexValues = [
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-];
+const hexValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e']
 
 const populate = a => {
   for (var i = 0; i < 6; i++) {
-    var x = Math.round(Math.random() * 14);
-    var y = hexValues[x];
-    a += y;
+    var x = Math.round(Math.random() * 14)
+    var y = hexValues[x]
+    a += y
   }
-  return a;
-};
+  return a
+}
 
-const newColor1 = populate('#');
-const newColor2 = populate('#');
-const angle = Math.round(Math.random() * 360);
+const newColor1 = populate('#')
+const newColor2 = populate('#')
+const angle = Math.round(Math.random() * 360)
 
-export const gradient =
-  'linear-gradient(' + angle + 'deg, ' + newColor1 + ', ' + newColor2 + ')';
+export const gradient = 'linear-gradient(' + angle + 'deg, ' + newColor1 + ', ' + newColor2 + ')'
 
 export const Layout = styled.div`
   margin-top: 4vw;
@@ -40,8 +23,8 @@ export const Layout = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 920px) {
-    margin-top: 70px;;
-    }
+    margin-top: 70px;
+  }
   h1 {
     font-size: 45px;
   }
@@ -62,7 +45,7 @@ export const Layout = styled.div`
     position: fixed;
     background: ${props => props.gradient};
   }
-`;
+`
 
 export const Nav = styled.nav`
   position: fixed;
@@ -129,4 +112,4 @@ export const Nav = styled.nav`
     }
   }
   }
-`;
+`

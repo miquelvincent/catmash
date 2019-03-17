@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 export const Container = styled.div`
   h1 {
@@ -36,7 +36,7 @@ export const Container = styled.div`
         }
         @media (max-width: 920px) {
           width: 275px;
-          height: 275px;;
+          height: 275px;
         }
         @media (max-width: 780px) {
           width: 350px;
@@ -45,4 +45,4 @@ export const Container = styled.div`
       }
     }
   }
-`;
+`

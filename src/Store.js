@@ -1,16 +1,15 @@
-import React from 'react';
-import {reducer} from './reducer';
+import React from 'react'
+import { reducer } from './reducer'
 
-export const Store = React.createContext();
-
+export const Store = React.createContext()
 
 const initialState = {
   cats: [],
-  ranking: [],
-};
+  ranking: []
+}
 
 export function StoreProvider(props) {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const value = {state, dispatch};
-  return <Store.Provider value={value}>{props.children}</Store.Provider>;
+  const [state, dispatch] = React.useReducer(reducer, initialState)
+  const value = { state, dispatch }
+  return <Store.Provider value={value}>{props.children}</Store.Provider>
 }

@@ -1,21 +1,21 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {Store} from '../Store';
-import {fetchRanking} from '../redux';
-import {Nav} from '../style';
-import {Container} from './style';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Store } from '../Store'
+import { fetchRanking } from '../redux'
+import { Nav } from '../style'
+import { Container } from './style'
 
-const CatsList = React.lazy(() => import('./CatsList'));
+const CatsList = React.lazy(() => import('./CatsList'))
 
 const Ranking = () => {
-  const {state, dispatch} = React.useContext(Store);
+  const { state, dispatch } = React.useContext(Store)
   React.useEffect(() => {
-    fetchRanking(dispatch, state);
-  }, []);
+    fetchRanking(dispatch, state)
+  }, [dispatch, state])
 
   const props = {
-    ranking: state.ranking,
-  };
+    ranking: state.ranking
+  }
 
   return (
     <>
@@ -39,7 +39,7 @@ const Ranking = () => {
         </React.Suspense>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Ranking;
+export default Ranking

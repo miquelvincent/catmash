@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {StoreProvider} from './Store';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {Layout, gradient} from './style';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { StoreProvider } from './Store'
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
+import { Layout, gradient } from './style'
 
 ReactDOM.render(
   <StoreProvider>
@@ -12,7 +12,7 @@ ReactDOM.render(
       <App />
     </Layout>
   </StoreProvider>,
-  document.getElementById('root'),
-);
+  document.getElementById('root')
+)
 
-serviceWorker.unregister();
+serviceWorker.unregister()
